@@ -4,7 +4,7 @@
  * The cloud name is preferentially read from the *response* (`MediaRef.cloud_name`
  * / `MediaOut.cloud_name`) so the browser never depends on a build-time env
  * var. The `NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME` env var is used only when no
- * explicit value is supplied — handy for pure-server callers (sitemaps,
+ * explicit value is supplied - handy for pure-server callers (sitemaps,
  * OG image URLs at build time).
  *
  *   https://res.cloudinary.com/{cloud}/image/upload/{transforms}/{public_id}
@@ -70,7 +70,7 @@ export function cloudinaryUrl(publicId: string, opts: CloudinaryOptions = {}): s
     if (typeof console !== "undefined") {
       // eslint-disable-next-line no-console
       console.warn(
-        "cloudinaryUrl: no cloud name available — set NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME or pass cloudName explicitly.",
+        "cloudinaryUrl: no cloud name available - set NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME or pass cloudName explicitly.",
       );
     }
     return "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'/>";

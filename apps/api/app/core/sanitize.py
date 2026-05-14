@@ -1,11 +1,11 @@
 """Server-side HTML sanitisation for post bodies.
 
 CKEditor 5 produces HTML directly; the server runs that HTML through nh3
-with an explicit allowlist before persisting. The allowlist is the authority —
+with an explicit allowlist before persisting. The allowlist is the authority -
 anything the editor emits that isn't listed here is dropped.
 
 Note the inline-emphasis tags: CKEditor 5's Italic feature outputs `<i>`
-(not `<em>`), and PasteFromOffice can emit `<b>` — both must be allowed or
+(not `<em>`), and PasteFromOffice can emit `<b>` - both must be allowed or
 formatting silently disappears on save.
 """
 
@@ -23,7 +23,7 @@ _ALLOWED_TAGS: frozenset[str] = frozenset(
 )
 
 _ALLOWED_ATTRS: dict[str, set[str]] = {
-    # `rel` is added by nh3 via `link_rel=` — including it here is rejected.
+    # `rel` is added by nh3 via `link_rel=` - including it here is rejected.
     "a": {"href", "title", "target"},
     "img": {"src", "alt", "title", "width", "height", "loading"},
     "code": {"class"},  # language-* for syntax highlighting

@@ -1,7 +1,7 @@
 """Emit on-demand revalidation calls to the web app.
 
 The web app exposes `/api/revalidate` (secret-protected). We POST a list of
-paths to invalidate after publish/update/delete. Failure is non-fatal — ISR's
+paths to invalidate after publish/update/delete. Failure is non-fatal - ISR's
 time-based revalidation is the safety net.
 """
 
@@ -30,7 +30,7 @@ async def revalidate(paths: list[str]) -> None:
                 json={"paths": paths},
                 headers={"x-revalidate-secret": _SECRET},
             )
-    except Exception as exc:  # noqa: BLE001  fire-and-forget — log and move on
+    except Exception as exc:  # noqa: BLE001  fire-and-forget - log and move on
         _log.warning("revalidate.failed", paths=paths, error=str(exc))
 
 

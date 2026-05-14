@@ -6,10 +6,10 @@
 |---|---|---|---|
 | Postgres | Full logical dump | `pg_dump` cron via Neon "Point-in-time recovery" (always on) or RDS automated backups | 7 days hot, 30 days cold |
 | Cloudinary | Media assets | Cloudinary has its own redundancy; we never re-upload the same `public_id`, so deletions are the only loss vector | n/a |
-| Outbox | Pending email / revalidate sends | Captured in DB dump | — |
+| Outbox | Pending email / revalidate sends | Captured in DB dump | - |
 | Code | Git | GitHub | forever |
 
-## Daily snapshot — manual
+## Daily snapshot - manual
 
 ```bash
 # Neon: take an instant branch (free, point-in-time copy)
@@ -24,7 +24,7 @@ aws rds create-db-snapshot \
 docker compose exec postgres pg_dump -U blog -Fc blog > backups/blog-$(date +%Y%m%d).pgcustom
 ```
 
-## Restore — local
+## Restore - local
 
 ```bash
 # Wipe the current dev DB
@@ -39,7 +39,7 @@ docker compose exec -T postgres pg_restore -U blog -d blog --clean --if-exists \
 cd apps/api && uv run alembic upgrade head
 ```
 
-## Restore — production
+## Restore - production
 
 1. **Pause writes.** Set `MAINTENANCE_MODE=1` in the Vercel env (the layout
    shows a maintenance page when this is set) and redeploy.
@@ -62,4 +62,4 @@ cd apps/api && uv run alembic upgrade head
 
 ---
 
-*Last drill:* (none yet — schedule one in Stage 8 once a production DB exists.)
+*Last drill:* (none yet - schedule one in Stage 8 once a production DB exists.)

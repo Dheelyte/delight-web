@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import os
 
-# Tests must NEVER hit the dev DB — force-set the env before any app import.
+# Tests must NEVER hit the dev DB - force-set the env before any app import.
 # `setdefault` is wrong here: a stray DATABASE_URL in .env would silently win.
 os.environ["DATABASE_URL"] = os.environ.get(
     "TEST_DATABASE_URL",

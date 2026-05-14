@@ -1,7 +1,7 @@
 """Async SQLAlchemy engine and session factory.
 
 Connection pool is sized for serverless (Lambda) where one connection per warm
-container is the right default — see docs/decisions/003-serverless.md.
+container is the right default - see docs/decisions/003-serverless.md.
 """
 
 from __future__ import annotations

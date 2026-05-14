@@ -70,7 +70,7 @@ async def test_login_wrong_password_raises_auth_error(db_session: AsyncSession) 
 
 
 async def test_login_unknown_user_indistinguishable(db_session: AsyncSession) -> None:
-    """Same error class, no leaked timing pathway — and an auth_attempt row."""
+    """Same error class, no leaked timing pathway - and an auth_attempt row."""
     with pytest.raises(AuthError):
         await auth_service.login(
             db_session,

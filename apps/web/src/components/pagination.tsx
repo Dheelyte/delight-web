@@ -13,7 +13,7 @@ interface Props {
 }
 
 /**
- * URL-based pagination. Server component — it's just `<Link>`s, no state.
+ * URL-based pagination. Server component - it's just `<Link>`s, no state.
  *
  * Page 1 links omit `?page=1` entirely so the bare URL stays canonical.
  * Renders all numbers up to 7 pages; beyond that, windows around the current

@@ -91,7 +91,7 @@ export async function generateMetadata(
 }
 
 // Only surface "Updated" when the post was meaningfully revised *after*
-// publishing — same-day edits / tweaks shouldn't claim freshness.
+// publishing - same-day edits / tweaks shouldn't claim freshness.
 const UPDATED_THRESHOLD_MS = 24 * 60 * 60 * 1000;
 
 export default async function PostPage(

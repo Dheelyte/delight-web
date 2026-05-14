@@ -5,7 +5,7 @@ import { PostCard } from "@/components/public/post-card";
 import { publicFetch } from "@/lib/public-api";
 import type { SearchResults } from "@/lib/types";
 
-// Search is request-shaped — do not cache aggressively.
+// Search is request-shaped - do not cache aggressively.
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
@@ -49,7 +49,7 @@ export default async function SearchPage({
           placeholder="Search posts"
           className="flex-1 rounded-md border border-border bg-bg px-3 py-2 text-sm focus:border-accent focus:outline-none"
         />
-        {/* Submitting the form starts a fresh search — drop back to page 1. */}
+        {/* Submitting the form starts a fresh search - drop back to page 1. */}
         <button
           type="submit"
           className="rounded-md bg-accent px-4 py-2 text-sm font-medium text-accent-fg"

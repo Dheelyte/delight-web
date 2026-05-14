@@ -55,7 +55,7 @@ export interface RichEditorHandle {
  *
  * Alt text: CKEditor doesn't prompt during upload, so we seed from the
  * filename. The user can refine via the image toolbar's "Change image text
- * alternative" button afterwards — only the rendered `<img alt>` matters for
+ * alternative" button afterwards - only the rendered `<img alt>` matters for
  * the public site; the media row's alt is just a default we picked.
  */
 class CloudinaryUploadAdapter implements UploadAdapter {
@@ -83,7 +83,7 @@ class CloudinaryUploadAdapter implements UploadAdapter {
   }
 }
 
-// Typed against the base `Editor` — that's what CKEditor's `extraPlugins`
+// Typed against the base `Editor` - that's what CKEditor's `extraPlugins`
 // `PluginConstructor` contract expects; `FileRepository` lives on every editor.
 function CloudinaryUploadAdapterPlugin(editor: Editor): void {
   editor.plugins.get("FileRepository").createUploadAdapter = (loader) =>
@@ -101,10 +101,10 @@ interface Props {
  *
  * Output is HTML. The server (app/services/posts.update_post_content) runs the
  * HTML through nh3 sanitisation before persisting, so we don't strictly need
- * to constrain the editor's plugin set on safety grounds — but a tighter
+ * to constrain the editor's plugin set on safety grounds - but a tighter
  * toolbar makes for a calmer writing experience anyway.
  *
- * License: declared as "GPL" — the GPL-2.0 build is free for OSS / personal
+ * License: declared as "GPL" - the GPL-2.0 build is free for OSS / personal
  * use. Swap to a paid licenseKey before any commercial deployment.
  */
 export function RichEditor({ initialHtml, onChange, editorRef }: Props) {

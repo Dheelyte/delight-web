@@ -4,8 +4,8 @@ Revision ID: 0003_backfill_search
 Revises: 0002_media_focal
 Create Date: 2026-05-15
 
-Rationale: a row inserted before the trigger existed — or one whose vector
-column was somehow left NULL — will silently never match `@@ tsquery`. We
+Rationale: a row inserted before the trigger existed - or one whose vector
+column was somehow left NULL - will silently never match `@@ tsquery`. We
 touch every row, which fires the BEFORE-UPDATE trigger and rebuilds the
 vector from title/excerpt/content_html. Idempotent: re-running it just
 recomputes vectors that are already correct.

@@ -10,16 +10,41 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.middleware.trustedhost import TrustedHostMiddleware
 from fastapi.responses import JSONResponse
 
+from sqlalchemy import select
+
 from app.api.v1 import router as v1_router
 from app.core.config import get_settings
 from app.core.errors import AppError
 from app.core.logging import configure_logging, get_logger
 
 
+from app.core.db import session_scope
+from app.core.security import hash_password
+from app.infra.db.models.users import User, UserRole
+
+
 @asynccontextmanager
 async def lifespan(_app: FastAPI) -> AsyncIterator[None]:
     configure_logging()
     get_logger(__name__).info("api.startup", environment=get_settings().environment)
+    
+    email = get_settings().default_admin_email
+    password = get_settings().default_admin_password
+    async with session_scope() as session:
+        existing = (
+            await session.execute(select(User).where(User.email == email))
+        ).scalar_one_or_none()
+        if existing is not None:
+            return existing
+        admin = User(
+            email=email,
+            password_hash=hash_password(password),
+            role=UserRole.admin,
+            display_name="Admin",
+            bio="Default admin account",
+        )
+        session.add(admin)
+        await session.commit()
     yield
 
 
@@ -44,7 +69,7 @@ def create_app() -> FastAPI:
         openapi_url="/openapi.json" if not settings.is_production else None,
     )
 
-    # Reject requests with an unexpected Host header — first line of defence
+    # Reject requests with an unexpected Host header - first line of defence
     # against host-header injection attacks in production.
     app.add_middleware(TrustedHostMiddleware, allowed_hosts=settings.trusted_hosts)
 

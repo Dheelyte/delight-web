@@ -1,7 +1,7 @@
 /**
  * Client-side LQIP generator. Draws the uploaded file to a 24×24 canvas,
  * exports as JPEG data URL (~1.5 KB). Used as the CSS background while the
- * full image streams in — same role as a blurhash decode.
+ * full image streams in - same role as a blurhash decode.
  */
 
 const LQIP_MAX_DIMENSION = 24;

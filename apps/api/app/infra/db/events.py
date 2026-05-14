@@ -31,7 +31,7 @@ def _record_slug_change(session: OrmSession, instance: Any) -> None:
 
     deleted = history.deleted
     if not deleted:
-        return  # initial insert sets slug for the first time — nothing to record
+        return  # initial insert sets slug for the first time - nothing to record
 
     old_slug = deleted[0]
     new_slug = instance.slug

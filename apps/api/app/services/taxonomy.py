@@ -1,4 +1,4 @@
-"""Tags, categories, series — small CRUD services."""
+"""Tags, categories, series - small CRUD services."""
 
 from __future__ import annotations
 

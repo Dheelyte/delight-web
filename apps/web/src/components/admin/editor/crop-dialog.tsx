@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/cn";
 
 /**
- * Pre-upload crop UI. Locked to a configurable aspect ratio (default 16:9 —
+ * Pre-upload crop UI. Locked to a configurable aspect ratio (default 16:9 -
  * the format covers display in most layouts). Drag the rect to reposition;
  * drag a corner to resize. Confirm produces a JPEG blob via canvas.
  *
@@ -169,7 +169,7 @@ export function CropDialog({
         </h2>
         <p className="mt-1 text-sm text-fg-muted">
           Drag inside the frame to reposition; drag a corner to resize. The
-          cropped region is uploaded — anything outside is discarded.
+          cropped region is uploaded - anything outside is discarded.
         </p>
 
         <div
@@ -253,7 +253,7 @@ export function CropDialog({
 }
 
 // ---------------------------------------------------------------------------
-// helpers (kept module-local — only the dialog uses them)
+// helpers (kept module-local - only the dialog uses them)
 // ---------------------------------------------------------------------------
 
 function clamp(v: number, lo: number, hi: number): number {
@@ -279,7 +279,7 @@ function resizeRect(
       ? start.w + deltaW
       : (start.h + deltaH) * ar;
   let h = w / ar;
-  // Minimum size — prevents the rect collapsing to a dot.
+  // Minimum size - prevents the rect collapsing to a dot.
   if (w < 50) {
     w = 50;
     h = w / ar;

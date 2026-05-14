@@ -216,7 +216,7 @@ async def search(
     """Return (rows, total) matching `q`.
 
     Strategy: prefer ranked tsvector matches; OR in an ILIKE on title/excerpt
-    so partial words ("server" → "serverless") still surface — those rows
+    so partial words ("server" → "serverless") still surface - those rows
     fall to the bottom because their ts_rank is 0.
     """
     cleaned = q.strip()
@@ -289,7 +289,7 @@ async def lookup_slug_history(
     ).scalar_one_or_none()
     if row is None:
         return None
-    # Follow the chain forward — the entity may have been renamed again.
+    # Follow the chain forward - the entity may have been renamed again.
     current = row.new_slug
     while True:
         nxt = (

@@ -46,14 +46,14 @@ export async function generateMetadata({
   const page = parsePage((await searchParams).page);
   try {
     const tag = await loadTag(slug, page);
-    // Canonical points at *this* page, including `?page=N` — Appendix A: never
+    // Canonical points at *this* page, including `?page=N` - Appendix A: never
     // canonicalise paginated archives back to page 1.
     const canonical =
       page > 1
         ? absoluteUrl(`/tags/${tag.slug}?page=${page}`)
         : absoluteUrl(`/tags/${tag.slug}`);
     return {
-      title: page > 1 ? `Tag: ${tag.name} — page ${page}` : `Tag: ${tag.name}`,
+      title: page > 1 ? `Tag: ${tag.name} - page ${page}` : `Tag: ${tag.name}`,
       description: `Posts tagged "${tag.name}".`,
       alternates: { canonical },
       // Thin index pages are noindex'd by default per Appendix A.

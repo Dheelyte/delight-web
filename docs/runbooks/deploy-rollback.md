@@ -55,7 +55,7 @@ aws lambda update-alias \
 ```
 
 If the bad release **also ran a schema migration**, see "Migration rollback"
-below first — flipping the Lambda alone won't undo a destructive migration.
+below first - flipping the Lambda alone won't undo a destructive migration.
 
 ## Migration rollback
 

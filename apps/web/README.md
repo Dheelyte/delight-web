@@ -13,8 +13,8 @@ Visit http://localhost:3000.
 
 ## Scripts
 
-- `pnpm --filter web dev` — dev server
-- `pnpm --filter web build` — production build
-- `pnpm --filter web lint` — eslint
-- `pnpm --filter web typecheck` — `tsc --noEmit`
-- `pnpm --filter web test` — vitest
+- `pnpm --filter web dev` - dev server
+- `pnpm --filter web build` - production build
+- `pnpm --filter web lint` - eslint
+- `pnpm --filter web typecheck` - `tsc --noEmit`
+- `pnpm --filter web test` - vitest

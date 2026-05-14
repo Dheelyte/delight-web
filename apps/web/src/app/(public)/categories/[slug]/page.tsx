@@ -54,7 +54,7 @@ export async function generateMetadata({
         ? absoluteUrl(`/categories/${cat.slug}?page=${page}`)
         : absoluteUrl(`/categories/${cat.slug}`);
     return {
-      title: page > 1 ? `${cat.name} — page ${page}` : cat.name,
+      title: page > 1 ? `${cat.name} - page ${page}` : cat.name,
       description: cat.description ?? `Posts in ${cat.name}.`,
       alternates: { canonical },
       robots: cat.posts.total < 3 ? "noindex, follow" : undefined,

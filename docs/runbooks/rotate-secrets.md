@@ -9,7 +9,7 @@ Run this quarterly, or immediately on any suspected compromise.
 | `SECRET_KEY` | API env (Vercel/AWS) | **Invalidates all sessions, reset tokens, encrypted TOTP secrets.** TOTP-enrolled users must re-enrol. |
 | Postgres password | DB provider + API env | Brief connection failures while the secret propagates. |
 | Cloudinary `API_SECRET` | API env | Existing media URLs keep working; new uploads need the new secret. |
-| SMTP / SES credentials | API env | New mail send only — in-flight outbox rows retry on next worker tick. |
+| SMTP / SES credentials | API env | New mail send only - in-flight outbox rows retry on next worker tick. |
 | `REVALIDATE_SECRET` | Both API and web envs | Must update **both** in lockstep; otherwise revalidation calls 403. |
 | GitHub Actions deploy keys | GitHub repo secrets | Deploys fail until the new key is in place. |
 
@@ -54,7 +54,7 @@ Run this quarterly, or immediately on any suspected compromise.
    );
    ```
 
-## Disaster path — suspected compromise
+## Disaster path - suspected compromise
 
 1. Rotate **immediately** (skip staging).
 2. Force every user out: `DELETE FROM sessions;` then bump `SECRET_KEY` so

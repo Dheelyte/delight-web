@@ -6,7 +6,7 @@
  *   </h2>
  *
  * Runs server-side on already-sanitised HTML, so the `id`s ship in the served
- * markup — native `#fragment` navigation works on first load without any JS,
+ * markup - native `#fragment` navigation works on first load without any JS,
  * and the whole heading is a click target that updates the URL hash.
  *
  * The slug comes from the heading's *text* content (inline markup stripped).
@@ -15,7 +15,7 @@
  */
 
 // Common named entities CKEditor / PasteFromOffice emit. We decode to the
-// *real* character so slugify treats it correctly — e.g. `&nbsp;` must become
+// *real* character so slugify treats it correctly - e.g. `&nbsp;` must become
 // a space, not the literal letters "nbsp". Anything not in this map falls
 // through to the catch-all below and is replaced with a space.
 const NAMED_ENTITIES: Record<string, string> = {
@@ -25,7 +25,7 @@ const NAMED_ENTITIES: Record<string, string> = {
   gt: ">",
   quot: '"',
   apos: "'",
-  mdash: "—",
+  mdash: "-",
   ndash: "–",
   hellip: "…",
   lsquo: "‘",
@@ -87,7 +87,7 @@ export interface TocHeading {
   level: 2 | 3;
   /** Plain text (inline markup stripped, entities decoded) for display. */
   text: string;
-  /** The id assigned to the heading — also the `#fragment` target. */
+  /** The id assigned to the heading - also the `#fragment` target. */
   slug: string;
 }
 

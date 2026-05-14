@@ -36,7 +36,7 @@ describe("addHeadingAnchors", () => {
 
   it("does not leak entity names into the slug", () => {
     // The classic bug: `&nbsp;` is six literal chars in a raw HTML string,
-    // and n/b/s/p are alphanumeric — they must not survive into the slug.
+    // and n/b/s/p are alphanumeric - they must not survive into the slug.
     expect(addHeadingAnchors("<h2>My Section&nbsp;</h2>").html).toContain(
       'id="my-section"',
     );
@@ -65,7 +65,7 @@ describe("addHeadingAnchors", () => {
   });
 
   it("falls back to 'section' for headings with no slug-able text", () => {
-    const { html } = addHeadingAnchors("<h2>—</h2>");
+    const { html } = addHeadingAnchors("<h2>-</h2>");
     expect(html).toContain('id="section"');
   });
 

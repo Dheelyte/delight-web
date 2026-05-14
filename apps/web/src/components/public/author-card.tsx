@@ -2,7 +2,7 @@ import type { AuthorOut } from "@/lib/types";
 
 /**
  * End-of-article author card. Renders only when there's something beyond the
- * name to show (a bio or an avatar) — the byline already covers a bare name.
+ * name to show (a bio or an avatar) - the byline already covers a bare name.
  * Part of the page's E-E-A-T signal: a clear "who wrote this".
  */
 export function AuthorCard({ author }: { author: AuthorOut }) {

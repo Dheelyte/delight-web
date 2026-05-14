@@ -1,4 +1,4 @@
-"""Cloudinary signing — deterministic + raises when unconfigured."""
+"""Cloudinary signing - deterministic + raises when unconfigured."""
 
 from __future__ import annotations
 

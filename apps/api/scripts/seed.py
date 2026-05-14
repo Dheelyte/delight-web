@@ -36,8 +36,8 @@ def _doc(text: str) -> dict[str, Any]:
 
 
 async def _get_or_create_admin() -> User:
-    email = os.environ.get("SEED_ADMIN_EMAIL", "admin@localhost.com")
-    password = os.environ.get("SEED_ADMIN_PASSWORD", "changeme-then-rotate")
+    email = os.environ.get("SEED_ADMIN_EMAIL")
+    password = os.environ.get("SEED_ADMIN_PASSWORD")
     async with session_scope() as session:
         existing = (
             await session.execute(select(User).where(User.email == email))
@@ -49,7 +49,7 @@ async def _get_or_create_admin() -> User:
             password_hash=hash_password(password),
             role=UserRole.admin,
             display_name="Admin",
-            bio="Default admin account — rotate the password before going live.",
+            bio="Default admin account - rotate the password before going live.",
         )
         session.add(admin)
         await session.flush()
@@ -131,9 +131,9 @@ async def seed() -> None:
     await _upsert_post(
         slug="hello-world",
         title="Hello, world",
-        excerpt="The first post — a sanity check that publishing actually works.",
+        excerpt="The first post - a sanity check that publishing actually works.",
         body=(
-            "This is a seeded post. The body is intentionally short — "
+            "This is a seeded post. The body is intentionally short - "
             "Stage 4 will replace it with real editorial content."
         ),
         author_id=admin.id,
@@ -147,7 +147,7 @@ async def seed() -> None:
         excerpt="Choosing Next.js, FastAPI, and Postgres over the alternatives.",
         body=(
             "Boring technology wins. Each choice in the stack favours longevity "
-            "over novelty — and the few interesting decisions are documented as ADRs."
+            "over novelty - and the few interesting decisions are documented as ADRs."
         ),
         author_id=admin.id,
         series_id=series.id,
@@ -157,7 +157,7 @@ async def seed() -> None:
     await _upsert_post(
         slug="serverless-tradeoffs",
         title="The serverless trade-offs",
-        excerpt="What you give up by running a blog on Lambda — and why it's fine.",
+        excerpt="What you give up by running a blog on Lambda - and why it's fine.",
         body=(
             "Cold starts, connection pooling, and the file-system being /tmp. "
             "Each one has a clean answer at this scale; this post explains them."

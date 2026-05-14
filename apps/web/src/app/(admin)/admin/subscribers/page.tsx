@@ -75,7 +75,7 @@ export default async function AdminSubscribersPage({
                 <td className="px-4 py-2 text-xs text-fg-muted">
                   {s.confirmed_at
                     ? new Date(s.confirmed_at).toLocaleString()
-                    : "—"}
+                    : "-"}
                 </td>
                 <td className="px-4 py-2 text-xs text-fg-muted">
                   {new Date(s.created_at).toLocaleString()}

@@ -22,7 +22,7 @@ class Settings(BaseSettings):
     database_url: PostgresDsn
 
     cors_allowed_origins: list[str] = ["http://localhost:3000"]
-    # Production must override — `*` is fine for dev but rejected as a security
+    # Production must override - `*` is fine for dev but rejected as a security
     # surface in prod by the Host-header middleware (see app.main).
     trusted_hosts: list[str] = ["*"]
 
@@ -33,6 +33,9 @@ class Settings(BaseSettings):
     cloudinary_cloud_name: str = ""
     cloudinary_api_key: str = ""
     cloudinary_api_secret: str = ""
+
+    default_admin_email: str = Field(...)
+    default_admin_password: str = Field(...)
 
     @property
     def is_production(self) -> bool:

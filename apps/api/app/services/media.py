@@ -1,7 +1,7 @@
 """Cloudinary signed-upload helper + media row persistence.
 
 The browser uploads *directly* to Cloudinary; the server only signs the
-upload params. We never accept raw file bytes through FastAPI — that keeps
+upload params. We never accept raw file bytes through FastAPI - that keeps
 the Lambda payload tiny and offloads transformation to Cloudinary.
 """
 

@@ -94,7 +94,7 @@ async def record_view(
             post_id=post,
             session_hash=session,
             referrer_host=_host_only(referrer),
-            country_code=None,  # GeoIP wiring deferred — see docs/deferred.md
+            country_code=None,  # GeoIP wiring deferred - see docs/deferred.md
         )
     )
     return True

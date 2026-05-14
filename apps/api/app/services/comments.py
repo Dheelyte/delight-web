@@ -32,7 +32,7 @@ def _now() -> datetime:
 
 
 def _hash(value: str) -> str:
-    """Salted SHA-256 (secret key as salt) — keeps PII out of the DB."""
+    """Salted SHA-256 (secret key as salt) - keeps PII out of the DB."""
     salt = get_settings().secret_key
     return hashlib.sha256(f"{salt}|{value}".encode("utf-8")).hexdigest()
 
@@ -96,7 +96,7 @@ async def submit(
         if parent.parent_id is not None:
             raise DomainError("Replies cannot be nested further.")
 
-    # Spam heuristics — flagged as `spam`, not rejected outright, so the admin
+    # Spam heuristics - flagged as `spam`, not rejected outright, so the admin
     # can rescue false positives from the queue.
     is_spam = _looks_like_spam(body=body, ip=ip)
     if not is_spam:
@@ -124,7 +124,7 @@ def _looks_like_spam(*, body: str, ip: str | None) -> bool:
     if len(_URL_RE.findall(body)) > MAX_URLS_IN_BODY:
         return True
     if ip is None:
-        # Anonymous via X-Forwarded-For absent — common with bots.
+        # Anonymous via X-Forwarded-For absent - common with bots.
         return False
     return False
 
@@ -173,7 +173,7 @@ async def list_pending(
     # `joinedload(Comment.post)` eager-loads the parent post so the router can
     # read `comment.post.title/slug` without triggering lazy IO from a sync
     # attribute access (async sessions can't lazy-load). Many-to-one join +
-    # LIMIT is safe — no row multiplication.
+    # LIMIT is safe - no row multiplication.
     base = (
         select(Comment)
         .options(joinedload(Comment.post))
@@ -205,7 +205,7 @@ async def count_pending(db: AsyncSession) -> int:
 
 
 async def count_approved(db: AsyncSession, *, post_id: UUID) -> int:
-    """Public comment count for a post — feeds the BlogPosting JSON-LD."""
+    """Public comment count for a post - feeds the BlogPosting JSON-LD."""
     return (
         await db.execute(
             select(func.count())

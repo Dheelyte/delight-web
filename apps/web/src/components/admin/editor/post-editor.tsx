@@ -66,7 +66,7 @@ export function PostEditor({
     return () => clearInterval(id);
   }, [persist]);
 
-  // ⌘S / Ctrl+S — explicit save.
+  // ⌘S / Ctrl+S - explicit save.
   useEffect(() => {
     function onKey(e: KeyboardEvent) {
       if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "s") {

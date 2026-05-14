@@ -1,4 +1,4 @@
-"""Tags, categories, series — admin-managed taxonomy endpoints."""
+"""Tags, categories, series - admin-managed taxonomy endpoints."""
 
 from __future__ import annotations
 

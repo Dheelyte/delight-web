@@ -4,7 +4,7 @@
  *
  *   <img src="https://res.cloudinary.com/CLOUD/image/upload/v123/posts/inline/x.jpg">
  *
- * which serves the untouched original at full size — a real LCP and bandwidth
+ * which serves the untouched original at full size - a real LCP and bandwidth
  * hit. This transform injects `f_auto,q_auto` (per-request AVIF/WebP + quality)
  * and a width `srcset`, plus `loading="lazy"` / `decoding="async"`:
  *
@@ -14,7 +14,7 @@
  *
  * Runs server-side on already-sanitised HTML (same place as addHeadingAnchors),
  * so the optimised markup ships in the initial response. Non-Cloudinary <img>
- * tags — e.g. pasted external URLs — are left untouched.
+ * tags - e.g. pasted external URLs - are left untouched.
  */
 
 const IMG_RE = /<img\b([^>]*)>/gi;

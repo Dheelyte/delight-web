@@ -67,7 +67,7 @@ If the source is a small set of IPs, push the block out of the application:
 
 - **Vercel:** Project → Firewall → IP Blocking → add the CIDRs.
 - **AWS API Gateway in front of Lambda:** add a WAF IP-set rule (CDK in
-  `infra/api-stack.ts` — see Stage 8).
+  `infra/api-stack.ts` - see Stage 8).
 
 ## 5. Audit the cleanup
 
@@ -87,5 +87,5 @@ GROUP BY 1,2,3 ORDER BY count(*) DESC LIMIT 20;
 
 - Note the source IPs, vectors, and the volume in `docs/incidents/YYYY-MM-DD.md`.
 - If the heuristics in `app/services/comments.py` missed the wave, raise the
-  `MAX_URLS_IN_BODY` ceiling or add a new pattern check — file a PR with a
+  `MAX_URLS_IN_BODY` ceiling or add a new pattern check - file a PR with a
   test that reproduces a sample payload.

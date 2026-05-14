@@ -24,7 +24,7 @@ class _SignIn(BaseModel):
 
 def _to_out(m: object) -> MediaOut:  # accepts the ORM Media row
     # Embed cloud_name so the client never has to read a build-time env var to
-    # construct delivery URLs. One short string per response — worth the bytes.
+    # construct delivery URLs. One short string per response - worth the bytes.
     return MediaOut(
         id=m.id,  # type: ignore[attr-defined]
         cloud_name=get_settings().cloudinary_cloud_name,

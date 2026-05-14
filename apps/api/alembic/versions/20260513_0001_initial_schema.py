@@ -19,7 +19,7 @@ depends_on: str | Sequence[str] | None = None
 
 # asyncpg's prepared-statement protocol forbids multi-statement strings,
 # so each item below must be a single SQL statement (the trigger function
-# body counts as one — its `$$...$$` quoting keeps it intact).
+# body counts as one - its `$$...$$` quoting keeps it intact).
 UPGRADE_STATEMENTS: list[str] = [
     # -- Extensions --
     "CREATE EXTENSION IF NOT EXISTS citext",

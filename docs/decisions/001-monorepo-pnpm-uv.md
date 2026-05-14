@@ -1,4 +1,4 @@
-# 001 — Monorepo with pnpm workspaces + uv
+# 001 - Monorepo with pnpm workspaces + uv
 
 - **Status:** accepted
 - **Date:** 2026-05-13

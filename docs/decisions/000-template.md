@@ -1,4 +1,4 @@
-# NNN — Title
+# NNN - Title
 
 - **Status:** proposed | accepted | superseded by NNN
 - **Date:** YYYY-MM-DD

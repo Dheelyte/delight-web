@@ -1,6 +1,6 @@
 /**
  * Imperative dialog API. Call `confirmDialog/promptDialog/alertDialog` from
- * anywhere — the single `<DialogHost>` mounted in a layout renders the active
+ * anywhere - the single `<DialogHost>` mounted in a layout renders the active
  * dialog and resolves the returned Promise when the user picks.
  *
  * Why imperative: matches the native API (`window.confirm` etc.) so call sites

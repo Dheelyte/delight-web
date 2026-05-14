@@ -25,7 +25,7 @@ from app.infra.db.models.engagement import Subscriber, SubscriberStatus
 from app.infra.db.models.system import Outbox
 from app.services import audit
 
-UNSUBSCRIBE_MAX_AGE: Final = 365 * 24 * 60 * 60  # ~1 year — generous, link must work
+UNSUBSCRIBE_MAX_AGE: Final = 365 * 24 * 60 * 60  # ~1 year - generous, link must work
 
 
 def _now() -> datetime:

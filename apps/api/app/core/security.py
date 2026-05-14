@@ -61,7 +61,7 @@ def generate_token(nbytes: int = 32) -> str:
 
 
 def hash_token(token: str) -> str:
-    """SHA-256 hex digest. Raw tokens are never stored — only this hash."""
+    """SHA-256 hex digest. Raw tokens are never stored - only this hash."""
     return hashlib.sha256(token.encode("utf-8")).hexdigest()
 
 

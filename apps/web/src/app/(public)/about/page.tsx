@@ -13,7 +13,7 @@ export default function AboutPage() {
           {SITE_NAME} is a personal writing space focused on engineering and craft.
         </p>
         <p className="mt-4 text-fg-muted">
-          Replace this copy with your real about page — it's a CMS-managed page in
+          Replace this copy with your real about page - it's a CMS-managed page in
           Stage 6 once the site has real content to anchor it.
         </p>
       </div>

@@ -1,6 +1,6 @@
 /**
  * Public-API fetch helper for the reader-facing site.
- * No cookie forwarding — these endpoints are unauthenticated. Uses ISR-friendly
+ * No cookie forwarding - these endpoints are unauthenticated. Uses ISR-friendly
  * Next.js `revalidate` hints which RSCs honour for build-time + ISR.
  */
 const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8000/api";

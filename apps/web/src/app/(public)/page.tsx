@@ -39,7 +39,7 @@ export default async function HomePage({
         {data.items.length === 0 ? (
           <p className="text-fg-muted">
             {page === 1
-              ? "No posts yet — check back soon."
+              ? "No posts yet - check back soon."
               : "Nothing on this page."}
           </p>
         ) : (

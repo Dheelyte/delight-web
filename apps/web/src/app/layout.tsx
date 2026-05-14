@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
     default: SITE_NAME,
-    template: `%s — ${SITE_NAME}`,
+    template: `%s - ${SITE_NAME}`,
   },
   description: "Long-form writing on engineering and craft.",
   openGraph: { type: "website", siteName: SITE_NAME, locale: "en_US" },

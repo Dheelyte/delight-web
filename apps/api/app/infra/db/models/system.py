@@ -55,7 +55,7 @@ class AuditLog(UUIDPKMixin, Base):
 class PageView(Base):
     """Read-side analytics. Partitioned by month on `viewed_at`.
 
-    The partitioning is created in the migration, not via SQLAlchemy DDL —
+    The partitioning is created in the migration, not via SQLAlchemy DDL -
     SA's declarative layer does not model PARTITION BY cleanly.
     The primary key is composite (id, viewed_at) to satisfy Postgres's
     rule that the partition key must be part of every unique constraint.
@@ -93,7 +93,7 @@ class SlugEntityType(str, enum.Enum):
 
 
 class SlugHistory(UUIDPKMixin, Base):
-    """SEO equity preservation — every slug change is recorded for 301 redirects."""
+    """SEO equity preservation - every slug change is recorded for 301 redirects."""
 
     __tablename__ = "slug_history"
 

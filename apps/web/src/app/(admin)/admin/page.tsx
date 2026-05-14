@@ -74,7 +74,7 @@ export default async function AdminDashboard() {
           <ul className="divide-y divide-border">
             {analytics.top_posts.length === 0 && (
               <li className="py-3 text-sm text-fg-muted">
-                No view data yet — visit a published post in another tab to seed it.
+                No view data yet - visit a published post in another tab to seed it.
               </li>
             )}
             {analytics.top_posts.map((p) => (

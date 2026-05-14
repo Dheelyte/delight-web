@@ -17,7 +17,7 @@ const STATUS_TABS: { label: string; value: PostStatus | "all" }[] = [
 ];
 
 function fmtDate(iso: string | null): string {
-  if (!iso) return "—";
+  if (!iso) return "-";
   return new Date(iso).toLocaleString();
 }
 
@@ -47,7 +47,7 @@ export default async function PostsPage({
         <NewPostButton />
       </header>
 
-      {/* Changing the query or status resets to page 1 — neither the form nor
+      {/* Changing the query or status resets to page 1 - neither the form nor
           the status tabs carry `page`, so navigating drops it. */}
       <form className="flex flex-wrap items-center gap-2" action="/admin/posts">
         <input

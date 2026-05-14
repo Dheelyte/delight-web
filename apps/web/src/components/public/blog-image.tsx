@@ -1,5 +1,5 @@
 /**
- * Responsive image for blog content. Alt is required by the type — TypeScript
+ * Responsive image for blog content. Alt is required by the type - TypeScript
  * itself is the lint rule. We render a wrapper + a dedicated blurred placeholder
  * layer so the 24-px LQIP looks like real-world blur instead of pixel art when
  * upscaled to full width.

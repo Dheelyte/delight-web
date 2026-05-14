@@ -196,7 +196,7 @@ export function SeriesManager({ initial }: { initial: Series[] }) {
         ))}
       </ul>
       <p className="text-xs text-fg-subtle">
-        Series with attached posts cannot be deleted — detach them in the post editor first.
+        Series with attached posts cannot be deleted - detach them in the post editor first.
       </p>
     </div>
   );

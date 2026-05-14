@@ -12,7 +12,7 @@ interface Props {
 
 /**
  * Post share controls: native share (mobile), copy-link, and the main social
- * platforms. The social entries are plain `<a target="_blank">` links — no
+ * platforms. The social entries are plain `<a target="_blank">` links - no
  * SDKs, no tracking pixels, nothing that needs a CSP exception.
  */
 export function ShareBar({ url, title, className }: Props) {
@@ -34,7 +34,7 @@ export function ShareBar({ url, title, className }: Props) {
       setCopied(true);
       window.setTimeout(() => setCopied(false), 2000);
     } catch {
-      // Clipboard blocked (insecure context / permissions) — fail silently;
+      // Clipboard blocked (insecure context / permissions) - fail silently;
       // the social links still work.
     }
   }
@@ -43,7 +43,7 @@ export function ShareBar({ url, title, className }: Props) {
     try {
       await navigator.share({ title, url });
     } catch {
-      // User dismissed the share sheet — nothing to do.
+      // User dismissed the share sheet - nothing to do.
     }
   }
 

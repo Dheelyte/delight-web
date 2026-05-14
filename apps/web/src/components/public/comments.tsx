@@ -77,7 +77,7 @@ export function Comments({ postSlug }: Props) {
         replyTo={replyTo}
         onClearReply={() => setReplyTo(null)}
         onSubmitted={() => {
-          // The new comment goes into moderation — show a confirmation, don't refetch.
+          // The new comment goes into moderation - show a confirmation, don't refetch.
         }}
       />
     </section>
@@ -166,7 +166,7 @@ function CommentForm({
   if (done) {
     return (
       <p className="mt-8 rounded-md border border-border bg-bg-elevated p-4 text-sm text-fg-muted">
-        Thanks — your comment is in moderation. It will appear once approved.
+        Thanks - your comment is in moderation. It will appear once approved.
       </p>
     );
   }
@@ -221,7 +221,7 @@ function CommentForm({
         placeholder="Your comment"
         className={input}
       />
-      {/* Honeypot — visually hidden, autocomplete off; bots fill it. */}
+      {/* Honeypot - visually hidden, autocomplete off; bots fill it. */}
       <input
         tabIndex={-1}
         autoComplete="off"

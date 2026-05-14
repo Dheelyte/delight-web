@@ -7,7 +7,7 @@ import { cloudinaryUrl } from "@/lib/cloudinary";
 import { SITE_AUTHOR, SITE_NAME, SITE_URL, absoluteUrl, postUrl } from "@/lib/site";
 import type { PublicPostDetail } from "@/lib/types";
 
-/** Rough word count from rendered HTML — strip tags, count whitespace runs. */
+/** Rough word count from rendered HTML - strip tags, count whitespace runs. */
 function countWords(html: string): number {
   const text = html
     .replace(/<[^>]+>/g, " ")

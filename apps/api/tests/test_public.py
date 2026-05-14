@@ -50,7 +50,7 @@ async def test_list_published_excludes_drafts_and_future_scheduled(
 
 
 async def test_search_partial_word_falls_back_to_ilike(db_session: AsyncSession) -> None:
-    """`plainto_tsquery` won't match "server" against "serverless" — the ILIKE
+    """`plainto_tsquery` won't match "server" against "serverless" - the ILIKE
     branch is what keeps partial-word queries useful for readers."""
     actor = await create_user(db_session, role=UserRole.admin)
     post = await _published(db_session, actor, title="The serverless trade-offs")

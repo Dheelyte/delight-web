@@ -222,7 +222,7 @@ async def update_post_content(
         resource_id=str(post.id),
     )
     # `updated_at` is server-generated (onupdate) and `search_vector` is set by
-    # a BEFORE-UPDATE trigger — both expire after flush. Refresh so callers can
+    # a BEFORE-UPDATE trigger - both expire after flush. Refresh so callers can
     # read them without triggering implicit IO from sync attribute access.
     await db.flush()
     await db.refresh(post)
@@ -306,7 +306,7 @@ async def _replace_tags(
 
 
 # ---------------------------------------------------------------------------
-# State transitions — explicit endpoints
+# State transitions - explicit endpoints
 # ---------------------------------------------------------------------------
 
 
@@ -398,7 +398,7 @@ async def restore_revision(
     if rev is None:
         raise NotFoundError("Revision not found.")
     # Revisions store the HTML envelope; old TipTap-era revisions store the
-    # full JSON doc — for those we fall back to whatever content_html the post
+    # full JSON doc - for those we fall back to whatever content_html the post
     # already has, since the renderer is gone.
     rev_html = _extract_html(rev.content_json) if isinstance(rev.content_json, dict) else ""
     if not rev_html:

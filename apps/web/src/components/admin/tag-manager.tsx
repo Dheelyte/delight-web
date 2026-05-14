@@ -167,7 +167,7 @@ export function TagManager({ initialTags }: { initialTags: Tag[] }) {
         ))}
       </ul>
       <p className="text-xs text-fg-subtle">
-        Tags in use by a post cannot be deleted — remove them from the posts first.
+        Tags in use by a post cannot be deleted - remove them from the posts first.
       </p>
     </div>
   );

@@ -7,7 +7,7 @@ export default function NotFound() {
         <p className="font-mono text-sm text-fg-subtle">404</p>
         <h1 className="mt-2 font-serif text-4xl">Nothing here</h1>
         <p className="mt-3 max-w-md text-fg-muted">
-          The page you're looking for doesn't exist — or has moved and the
+          The page you're looking for doesn't exist - or has moved and the
           redirect has lapsed.
         </p>
         <Link

@@ -1,4 +1,4 @@
-# 002 — Hosting: Vercel (web) + AWS Lambda (api)
+# 002 - Hosting: Vercel (web) + AWS Lambda (api)
 
 - **Status:** accepted
 - **Date:** 2026-05-13
@@ -10,7 +10,7 @@ The original build prompt called for Docker Compose locally and a single-VM / Pa
 ## Decision
 
 - **Web → Vercel.** Next.js 15 ISR, edge middleware (CSP nonce, `/admin` gating, slug-history 301s), and OG image generation are first-party. Preview deployments per PR.
-- **API → AWS Lambda** (container image, ARM64/Graviton, behind API Gateway HTTP API). FastAPI runs unchanged under the Lambda Web Adapter — no Mangum.
+- **API → AWS Lambda** (container image, ARM64/Graviton, behind API Gateway HTTP API). FastAPI runs unchanged under the Lambda Web Adapter - no Mangum.
 - **DB → Neon Postgres** by default (HTTP driver avoids Lambda pool issues, branch DB per Vercel preview). RDS + RDS Proxy documented as an alternative in a later ADR.
 - **Async work → SQS + Lambda consumers + EventBridge Scheduler.** No Redis, no Celery, no worker fleet.
 - **Email → AWS SES** in prod; Mailhog locally.

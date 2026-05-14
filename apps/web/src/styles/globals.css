@@ -98,7 +98,7 @@
  * `@layer base` preflight, which strips list markers) and scoped under
  * `.rich-editor` (so they outrank CKEditor's own `.ck-content` defaults on
  * specificity). The values mirror the public post-detail `.prose` styling in
- * apps/web/src/app/(public)/posts/[slug]/page.tsx — keep the two in sync so
+ * apps/web/src/app/(public)/posts/[slug]/page.tsx - keep the two in sync so
  * the writer sees realistic spacing and doesn't pad with blank lines.
  */
 .rich-editor .ck-content {

@@ -1,4 +1,4 @@
-"""ORM models — split by bounded context for navigability."""
+"""ORM models - split by bounded context for navigability."""
 
 from app.infra.db.models.auth import AuthAttempt, Session
 from app.infra.db.models.content import (

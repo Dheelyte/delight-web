@@ -1,4 +1,4 @@
-# 003 — Sessions in Postgres, not Redis
+# 003 - Sessions in Postgres, not Redis
 
 - **Status:** accepted
 - **Date:** 2026-05-13

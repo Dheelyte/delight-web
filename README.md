@@ -1,6 +1,6 @@
 # Delight Web
 
-Production-grade blog platform — public reader-facing site and a custom admin dashboard.
+Production-grade blog platform - public reader-facing site and a custom admin dashboard.
 
 - **Web:** Next.js 15 (App Router, TS strict) on Vercel
 - **API:** FastAPI (Python 3.12, async SQLAlchemy 2, Pydantic v2) on AWS Lambda
@@ -42,11 +42,11 @@ Mailhog UI for inspecting outbound mail: <http://localhost:8025>.
 
 ```
 apps/
-  web/       Next.js 15 — public site + /admin
-  api/       FastAPI — domain / infra / services / api / workers
+  web/       Next.js 15 - public site + /admin
+  api/       FastAPI - domain / infra / services / api / workers
 packages/
   shared-types/   TS types generated from the API's OpenAPI schema
-infra/           AWS CDK (TypeScript) — Stage 8
+infra/           AWS CDK (TypeScript) - Stage 8
 docs/
   decisions/     ADRs
   runbooks/      Restore, rotate-secrets, deploy-rollback, etc.
@@ -73,7 +73,7 @@ CI runs all of the above on every PR.
 
 ## Build stages
 
-The platform is built in eight numbered stages — see the original build prompt. Stage 0 (this commit) covers scaffolding and quality gates only; Stage 1 introduces the data model and migrations. Each stage ends with a status report and a manual review before the next begins.
+The platform is built in eight numbered stages - see the original build prompt. Stage 0 (this commit) covers scaffolding and quality gates only; Stage 1 introduces the data model and migrations. Each stage ends with a status report and a manual review before the next begins.
 
 ## Commit hygiene
 

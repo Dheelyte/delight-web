@@ -57,7 +57,7 @@ async def test_reset_token_expired_is_rejected(db_session: AsyncSession) -> None
     )
     assert token is not None
 
-    # Jump 16 minutes into the future — past the 15-minute TTL.
+    # Jump 16 minutes into the future - past the 15-minute TTL.
     with patch("app.core.security.time.time", return_value=time.time() + 16 * 60):
         with pytest.raises(AuthError):
             await auth_service.confirm_password_reset(

@@ -74,7 +74,7 @@ export function middleware(request: NextRequest) {
   const requestHeaders = new Headers(request.headers);
   requestHeaders.set("x-csp-nonce", nonce);
 
-  // /admin gating — real auth still runs in the admin layout via /auth/me.
+  // /admin gating - real auth still runs in the admin layout via /auth/me.
   if (
     pathname.startsWith("/admin") &&
     !pathname.startsWith("/admin/login") &&

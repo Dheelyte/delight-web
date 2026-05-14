@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 /**
  * Thin fixed bar at the top of the viewport showing scroll progress *through
- * the article* — it hits 100% at the end of the post body, not the end of the
+ * the article* - it hits 100% at the end of the post body, not the end of the
  * page (so comments/footer don't dilute it).
  *
  * Decorative, so `aria-hidden`. Targets an element by id (default
@@ -22,7 +22,7 @@ export function ReadingProgress({
     if (!el) return;
 
     function update() {
-      // `el` is non-null here — guarded above, and the effect re-runs per id.
+      // `el` is non-null here - guarded above, and the effect re-runs per id.
       const target = el as HTMLElement;
       const scrollable = target.offsetHeight - window.innerHeight;
       if (scrollable <= 0) {
