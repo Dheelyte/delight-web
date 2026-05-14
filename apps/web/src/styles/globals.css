@@ -1,0 +1,175 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-bg: oklch(99% 0.005 80);
+    --color-bg-elevated: oklch(100% 0 0);
+    --color-bg-muted: oklch(96% 0.005 80);
+    --color-fg: oklch(20% 0.01 260);
+    --color-fg-muted: oklch(45% 0.01 260);
+    --color-fg-subtle: oklch(60% 0.01 260);
+    --color-border: oklch(90% 0.005 80);
+    --color-border-strong: oklch(80% 0.005 80);
+    --color-accent: oklch(55% 0.18 260);
+    --color-accent-fg: oklch(99% 0 0);
+
+    --font-sans: "Inter", system-ui, sans-serif;
+    --font-serif: "Source Serif 4", Georgia, serif;
+  }
+
+  [data-theme="dark"] {
+    --color-bg: oklch(15% 0.01 260);
+    --color-bg-elevated: oklch(20% 0.01 260);
+    --color-bg-muted: oklch(25% 0.01 260);
+    --color-fg: oklch(96% 0.005 80);
+    --color-fg-muted: oklch(75% 0.01 260);
+    --color-fg-subtle: oklch(55% 0.01 260);
+    --color-border: oklch(30% 0.01 260);
+    --color-border-strong: oklch(40% 0.01 260);
+    --color-accent: oklch(70% 0.18 260);
+    --color-accent-fg: oklch(15% 0.01 260);
+  }
+
+  html {
+    background: var(--color-bg);
+    color: var(--color-fg);
+    font-family: var(--font-sans);
+    scroll-behavior: smooth;
+  }
+
+  body {
+    min-height: 100dvh;
+  }
+
+  *:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+/*
+ * Self-linking section headings in post content (see lib/heading-anchors.ts).
+ * The whole heading is a click target that updates the URL hash; a subtle `#`
+ * affordance fades in on hover/focus. Unlayered so it outranks the `[&_a]`
+ * utility variants on the post-prose container.
+ */
+.post-prose h2,
+.post-prose h3 {
+  scroll-margin-top: 1.5rem;
+}
+.post-prose .heading-anchor {
+  color: inherit;
+  text-decoration: none;
+  position: relative;
+}
+.post-prose .heading-anchor::before {
+  content: "#";
+  position: absolute;
+  left: -1.1em;
+  color: var(--color-fg-subtle);
+  font-weight: 400;
+  opacity: 0;
+  transition: opacity 120ms var(--ease-out, ease);
+}
+.post-prose .heading-anchor:hover::before,
+.post-prose .heading-anchor:focus-visible::before {
+  opacity: 1;
+}
+
+/*
+ * CKEditor content area.
+ *
+ * These rules are deliberately unlayered (so they outrank Tailwind's
+ * `@layer base` preflight, which strips list markers) and scoped under
+ * `.rich-editor` (so they outrank CKEditor's own `.ck-content` defaults on
+ * specificity). The values mirror the public post-detail `.prose` styling in
+ * apps/web/src/app/(public)/posts/[slug]/page.tsx — keep the two in sync so
+ * the writer sees realistic spacing and doesn't pad with blank lines.
+ */
+.rich-editor .ck-content {
+  font-family: var(--font-serif);
+  font-size: 1.125rem;
+  line-height: 1.625;
+  color: var(--color-fg);
+}
+.rich-editor .ck-content p {
+  margin: 1rem 0;
+}
+.rich-editor .ck-content h2 {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  line-height: 1.3;
+  margin: 2.5rem 0 0.5rem;
+}
+.rich-editor .ck-content h3 {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  line-height: 1.3;
+  margin: 2rem 0 0.5rem;
+}
+.rich-editor .ck-content h4 {
+  font-family: var(--font-serif);
+  font-size: 1.125rem;
+  line-height: 1.4;
+  margin: 1.5rem 0 0.5rem;
+}
+.rich-editor .ck-content ul {
+  list-style: disc;
+  padding-left: 1.5rem;
+  margin: 1rem 0;
+}
+.rich-editor .ck-content ol {
+  list-style: decimal;
+  padding-left: 1.5rem;
+  margin: 1rem 0;
+}
+.rich-editor .ck-content li {
+  margin: 0.25rem 0;
+}
+.rich-editor .ck-content blockquote {
+  border-left: 4px solid var(--color-border);
+  padding-left: 1rem;
+  font-style: italic;
+  margin: 1rem 0;
+}
+.rich-editor .ck-content a {
+  color: var(--color-accent);
+  text-decoration: underline;
+}
+.rich-editor .ck-content i,
+.rich-editor .ck-content em {
+  font-style: italic;
+}
+.rich-editor .ck-content code {
+  background: var(--color-bg-muted);
+  border-radius: 0.25rem;
+  padding: 0 0.25rem;
+}
+.rich-editor .ck-content pre {
+  background: var(--color-bg-muted);
+  border-radius: 0.375rem;
+  padding: 1rem;
+  overflow-x: auto;
+}
+.rich-editor .ck-content pre code {
+  background: transparent;
+  padding: 0;
+}
+.rich-editor .ck-content img {
+  border-radius: 0.5rem;
+}

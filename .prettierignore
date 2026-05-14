@@ -1,0 +1,10 @@
+node_modules
+.next
+.vercel
+dist
+build
+coverage
+pnpm-lock.yaml
+uv.lock
+**/migrations/versions
+**/.venv

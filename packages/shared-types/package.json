@@ -1,0 +1,13 @@
+{
+  "name": "@blog/shared-types",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./index.ts",
+  "types": "./index.ts",
+  "scripts": {
+    "lint": "echo 'shared-types: no lint yet'",
+    "typecheck": "echo 'shared-types: no typecheck yet'",
+    "test": "echo 'shared-types: no tests yet'",
+    "build": "echo 'shared-types: nothing to build'"
+  }
+}
