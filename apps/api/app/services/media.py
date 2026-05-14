@@ -25,7 +25,7 @@ from app.infra.db.models.users import User
 def sign_upload(*, folder: str | None = None) -> dict[str, Any]:
     """Return params for an unsigned-in-the-browser, signed-by-us Cloudinary upload."""
     settings = get_settings()
-    if not (settings.cloudinary_cloud_name and settings.cloudinary_api_key and settings.cloudinary_api_secret):
+    if not (settings.CLOUDINARY_CLOUD_NAME and settings.cloudinary_api_key and settings.CLOUDINARY_API_SECRET):
         raise ExternalServiceError("Cloudinary is not configured.")
 
     timestamp = int(time.time())
@@ -37,12 +37,12 @@ def sign_upload(*, folder: str | None = None) -> dict[str, Any]:
     # over the alphabetised non-empty params.
     serialised = "&".join(f"{k}={params[k]}" for k in sorted(params))
     signature = hashlib.sha1(
-        f"{serialised}{settings.cloudinary_api_secret}".encode("utf-8")
+        f"{serialised}{settings.CLOUDINARY_API_SECRET}".encode("utf-8")
     ).hexdigest()
 
     return {
-        "cloud_name": settings.cloudinary_cloud_name,
-        "api_key": settings.cloudinary_api_key,
+        "cloud_name": settings.CLOUDINARY_CLOUD_NAME,
+        "api_key": settings.CLOUDINARY_API_KEY,
         "timestamp": timestamp,
         "signature": signature,
         "folder": folder,

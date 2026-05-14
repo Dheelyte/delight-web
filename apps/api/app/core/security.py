@@ -71,7 +71,7 @@ def hash_token(token: str) -> str:
 
 
 def _hmac_key() -> bytes:
-    return hashlib.sha256(get_settings().secret_key.encode("utf-8")).digest()
+    return hashlib.sha256(get_settings().SECRET_KEY.encode("utf-8")).digest()
 
 
 def sign_payload(payload: str) -> str:
@@ -111,7 +111,7 @@ def verify_signed_payload(signed: str, *, max_age_seconds: int) -> str | None:
 
 
 def _fernet() -> Fernet:
-    raw = hashlib.sha256(get_settings().secret_key.encode("utf-8")).digest()
+    raw = hashlib.sha256(get_settings().SECRET_KEY.encode("utf-8")).digest()
     return Fernet(base64.urlsafe_b64encode(raw))
 
 

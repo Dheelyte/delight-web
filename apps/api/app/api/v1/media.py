@@ -27,7 +27,7 @@ def _to_out(m: object) -> MediaOut:  # accepts the ORM Media row
     # construct delivery URLs. One short string per response - worth the bytes.
     return MediaOut(
         id=m.id,  # type: ignore[attr-defined]
-        cloud_name=get_settings().cloudinary_cloud_name,
+        cloud_name=get_settings().CLOUDINARY_CLOUD_NAME,
         cloudinary_public_id=m.cloudinary_public_id,  # type: ignore[attr-defined]
         width=m.width,  # type: ignore[attr-defined]
         height=m.height,  # type: ignore[attr-defined]

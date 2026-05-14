@@ -37,7 +37,7 @@ def _now() -> datetime:
 
 
 def _session_hash(*, ip: str | None, user_agent: str | None, today: date) -> str:
-    salt = get_settings().secret_key
+    salt = get_settings().SECRET_KEY
     raw = f"{salt}|{ip or 'anon'}|{user_agent or 'anon'}|{today.isoformat()}"
     return hashlib.sha256(raw.encode("utf-8")).hexdigest()
 

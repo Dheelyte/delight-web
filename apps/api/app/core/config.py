@@ -17,29 +17,29 @@ class Settings(BaseSettings):
         extra="ignore",
     )
 
-    environment: Literal["development", "test", "staging", "production"] = "development"
-    secret_key: str = Field(min_length=32)
-    database_url: PostgresDsn
+    ENVIRONMENT: Literal["development", "test", "staging", "production"] = "development"
+    SECRET_KEY: str = Field(min_length=32)
+    DATABASE_URL: PostgresDsn
 
-    cors_allowed_origins: list[str] = ["http://localhost:3000"]
+    CORS_ALLOWED_ORIGINS: list[str] = ["http://localhost:3000"]
     # Production must override - `*` is fine for dev but rejected as a security
     # surface in prod by the Host-header middleware (see app.main).
-    trusted_hosts: list[str] = ["*"]
+    TREUSTED_HOSTS: list[str] = ["*"]
 
-    smtp_host: str = "localhost"
-    smtp_port: int = 1025
-    smtp_from: str = "noreply@localhost"
+    SMTP_HOST: str = "localhost"
+    SMTP_PORT: int = 1025
+    SMTP_FROM: str = "noreply@localhost"
 
-    cloudinary_cloud_name: str = ""
-    cloudinary_api_key: str = ""
-    cloudinary_api_secret: str = ""
+    CLOUDINARY_CLOUD_NAME: str = ""
+    CLOUDINARY_API_KEY: str = ""
+    CLOUDINARY_API_SECRET: str = ""
 
-    default_admin_email: str = Field(...)
-    default_admin_password: str = Field(...)
+    DEFAULT_ADMIN_EMAIL: str = Field(...)
+    DEFAULT_ADMIN_PASSWORD: str = Field(...)
 
     @property
     def is_production(self) -> bool:
-        return self.environment == "production"
+        return self.ENVIRONMENT == "production"
 
 
 @lru_cache(maxsize=1)

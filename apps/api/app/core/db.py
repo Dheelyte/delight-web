@@ -22,7 +22,7 @@ from app.core.config import get_settings
 def _create_engine() -> AsyncEngine:
     settings = get_settings()
     return create_async_engine(
-        str(settings.database_url),
+        str(settings.DATABASE_URL),
         pool_size=1,
         max_overflow=0,
         pool_pre_ping=True,

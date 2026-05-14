@@ -45,7 +45,7 @@ async def _cover(db: AsyncSession, post: Post) -> MediaRef | None:
     from app.core.config import get_settings
 
     return MediaRef(
-        cloud_name=get_settings().cloudinary_cloud_name,
+        cloud_name=get_settings().CLOUDINARY_CLOUD_NAME,
         cloudinary_public_id=m.cloudinary_public_id,
         width=m.width,
         height=m.height,

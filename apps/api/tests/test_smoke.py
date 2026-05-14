@@ -8,8 +8,8 @@ from app.core.errors import AppError, NotFoundError
 
 def test_settings_load() -> None:
     s = get_settings()
-    assert s.environment == "test"
-    assert len(s.secret_key) >= 32
+    assert s.ENVIRONMENT == "test"
+    assert len(s.SECRET_KEY) >= 32
 
 
 def test_error_hierarchy() -> None:

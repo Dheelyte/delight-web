@@ -33,7 +33,7 @@ def _now() -> datetime:
 
 def _hash(value: str) -> str:
     """Salted SHA-256 (secret key as salt) - keeps PII out of the DB."""
-    salt = get_settings().secret_key
+    salt = get_settings().SECRET_KEY
     return hashlib.sha256(f"{salt}|{value}".encode("utf-8")).hexdigest()
 
 

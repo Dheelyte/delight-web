@@ -28,10 +28,10 @@ from app.infra.db.models.users import User, UserRole
 @asynccontextmanager
 async def lifespan(_app: FastAPI) -> AsyncIterator[None]:
     configure_logging()
-    get_logger(__name__).info("api.startup", environment=get_settings().environment)
+    get_logger(__name__).info("api.startup", environment=get_settings().ENVIRONMENT)
 
-    email = get_settings().default_admin_email
-    password = get_settings().default_admin_password
+    email = get_settings().DEFAULT_ADMIN_EMAIL
+    password = get_settings().DEFAULT_ADMIN_PASSWORD
     async with session_scope() as session:
         existing = (
             await session.execute(select(User).where(User.email == email))
@@ -77,7 +77,7 @@ def create_app() -> FastAPI:
 
     app.add_middleware(
         CORSMiddleware,
-        allow_origins=settings.cors_allowed_origins,
+        allow_origins=settings.CORS_ALLOWED_ORIGINS,
         allow_credentials=True,
         allow_methods=["GET", "POST", "PATCH", "PUT", "DELETE", "OPTIONS"],
         allow_headers=["*"],
