@@ -17,12 +17,5 @@ services:
       timeout: 5s
       retries: 10
 
-  mailhog:
-    image: mailhog/mailhog:latest
-    restart: unless-stopped
-    ports:
-      - "1025:1025"  # SMTP
-      - "8025:8025"  # Web UI
-
 volumes:
   postgres_data:
