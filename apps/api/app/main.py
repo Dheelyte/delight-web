@@ -10,6 +10,8 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.middleware.trustedhost import TrustedHostMiddleware
 from fastapi.responses import JSONResponse
 
+from mangum import Mangum
+
 from sqlalchemy import select
 
 from app.api.v1 import router as v1_router
@@ -27,7 +29,7 @@ from app.infra.db.models.users import User, UserRole
 async def lifespan(_app: FastAPI) -> AsyncIterator[None]:
     configure_logging()
     get_logger(__name__).info("api.startup", environment=get_settings().environment)
-    
+
     email = get_settings().default_admin_email
     password = get_settings().default_admin_password
     async with session_scope() as session:
@@ -108,3 +110,5 @@ def create_app() -> FastAPI:
 
 
 app = create_app()
+
+handler = Mangum(app)
