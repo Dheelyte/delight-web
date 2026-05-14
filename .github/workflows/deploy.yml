@@ -31,7 +31,7 @@ jobs:
           SECRET_KEY: ${{ secrets.SECRET_KEY }}
         
         run: |
-          uv run alembic upgrade head
+          cd apps/api && uv run alembic upgrade head
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
