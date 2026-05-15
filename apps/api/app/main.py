@@ -72,7 +72,7 @@ def create_app() -> FastAPI:
 
     # Reject requests with an unexpected Host header - first line of defence
     # against host-header injection attacks in production.
-    app.add_middleware(TrustedHostMiddleware, allowed_hosts=settings.trusted_hosts)
+    app.add_middleware(TrustedHostMiddleware, allowed_hosts=settings.TREUSTED_HOSTS)
 
     app.add_middleware(
         CORSMiddleware,
