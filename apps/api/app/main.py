@@ -5,7 +5,7 @@ from __future__ import annotations
 from collections.abc import AsyncIterator, Awaitable, Callable
 from contextlib import asynccontextmanager
 
-from fastapi import FastAPI, Request, Response
+from fastapi import FastAPI, Request, Response, Depends
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.middleware.trustedhost import TrustedHostMiddleware
 from fastapi.responses import JSONResponse
@@ -13,6 +13,7 @@ from fastapi.responses import JSONResponse
 from mangum import Mangum
 
 from sqlalchemy import select
+from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.api.v1 import router as v1_router
 from app.core.config import get_settings
@@ -23,6 +24,7 @@ from app.core.logging import configure_logging, get_logger
 from app.core.db import session_scope
 from app.core.security import hash_password
 from app.infra.db.models.users import User, UserRole
+from app.api.deps import get_db
 
 
 @asynccontextmanager
@@ -102,6 +104,11 @@ def create_app() -> FastAPI:
             status_code=exc.status_code,
             content={"error": {"code": exc.code, "message": exc.message}},
         )
+
+    @app.get("/")
+    async def health_check(db: AsyncSession = Depends(get_db)):
+        # Verify Unit of Work runs without throwing errors
+        return {"status": "ok", "message": "Database session injected successfully"}
 
     app.include_router(v1_router, prefix="/api")
 
