@@ -36,17 +36,16 @@ async def lifespan(_app: FastAPI) -> AsyncIterator[None]:
         existing = (
             await session.execute(select(User).where(User.email == email))
         ).scalar_one_or_none()
-        if existing is not None:
-            return existing
-        admin = User(
-            email=email,
-            password_hash=hash_password(password),
-            role=UserRole.admin,
-            display_name="Admin",
-            bio="Default admin account",
-        )
-        session.add(admin)
-        await session.commit()
+        if not existing:
+            admin = User(
+                email=email,
+                password_hash=hash_password(password),
+                role=UserRole.admin,
+                display_name="Admin",
+                bio="Default admin account",
+            )
+            session.add(admin)
+            await session.commit()
     yield
 
 
