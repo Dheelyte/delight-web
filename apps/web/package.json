@@ -13,12 +13,14 @@
   },
   "dependencies": {
     "@ckeditor/ckeditor5-react": "^9.5.0",
+    "@vercel/analytics": "^2.0.1",
     "ckeditor5": "^44.0.0",
     "clsx": "^2.1.1",
     "next": "16.2.6",
     "react": "19.0.0",
     "react-dom": "19.0.0",
     "tailwind-merge": "^2.5.4",
+    "vercel": "^54.1.0",
     "zod": "^3.23.8"
   },
   "devDependencies": {

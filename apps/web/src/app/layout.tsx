@@ -1,3 +1,5 @@
+import { Analytics } from '@vercel/analytics/next';
+
 import type { Metadata, Viewport } from "next";
 import { headers } from "next/headers";
 
@@ -40,7 +42,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       <head>
         <ThemeInit theme={theme} nonce={nonce} />
       </head>
-      <body>{children}</body>
+      <body>{children}<Analytics /></body>
     </html>
   );
 }
