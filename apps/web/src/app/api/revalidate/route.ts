@@ -49,7 +49,7 @@ export async function POST(req: Request) {
   const revalidatedTags: string[] = [];
   for (const t of body.tags ?? []) {
     if (typeof t === "string" && t.length > 0 && t.length <= 80) {
-      revalidateTag(t);
+      revalidateTag(t, 'max');
       revalidatedTags.push(t);
     }
   }
