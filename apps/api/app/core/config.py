@@ -34,8 +34,8 @@ class Settings(BaseSettings):
     CLOUDINARY_API_KEY: str = ""
     CLOUDINARY_API_SECRET: str = ""
 
-    DEFAULT_ADMIN_EMAIL: str = Field(...)
-    DEFAULT_ADMIN_PASSWORD: str = Field(...)
+    DEFAULT_ADMIN_EMAIL: str = ""
+    DEFAULT_ADMIN_PASSWORD: str = ""
 
     @property
     def is_production(self) -> bool:
