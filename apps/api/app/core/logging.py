@@ -12,7 +12,7 @@ from app.core.config import get_settings
 
 def configure_logging() -> None:
     settings = get_settings()
-    is_dev = settings.environment == "development"
+    is_dev = settings.ENVIRONMENT == "development"
 
     logging.basicConfig(
         format="%(message)s",
