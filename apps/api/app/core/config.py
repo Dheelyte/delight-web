@@ -5,7 +5,7 @@ from __future__ import annotations
 from functools import lru_cache
 from typing import Literal
 
-from pydantic import Field, PostgresDsn
+from pydantic import Field
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
@@ -19,7 +19,7 @@ class Settings(BaseSettings):
 
     ENVIRONMENT: Literal["development", "test", "staging", "production"] = "development"
     SECRET_KEY: str = Field(min_length=32)
-    DATABASE_URL: str
+    DATABASE_URL: str = ""
 
     CORS_ALLOWED_ORIGINS: list[str] = ["http://localhost:3000"]
     # Production must override - `*` is fine for dev but rejected as a security
@@ -34,8 +34,8 @@ class Settings(BaseSettings):
     CLOUDINARY_API_KEY: str = ""
     CLOUDINARY_API_SECRET: str = ""
 
-    DEFAULT_ADMIN_EMAIL: str
-    DEFAULT_ADMIN_PASSWORD: str
+    DEFAULT_ADMIN_EMAIL: str = ""
+    DEFAULT_ADMIN_PASSWORD: str = ""
 
     @property
     def is_production(self) -> bool:
