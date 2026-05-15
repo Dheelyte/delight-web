@@ -51,7 +51,7 @@ jobs:
           ECR_REPOSITORY: ${{ secrets.ECR_REPO_NAME }}
           IMAGE_TAG: ${{ github.sha }}
         run: |
-          docker buildx build \
+          cd apps/api && docker buildx build \
             --platform linux/amd64 \
             --provenance=false \
             -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG \
